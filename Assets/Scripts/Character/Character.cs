@@ -25,10 +25,12 @@ public class Character : MonoBehaviour
         Health -= damage;
         Debug.Log("Hit");
 
-        if (AlreadyDead() == true)
+        if (AlreadyDead())
         {
-            Destroy(gameObject);
+            animator.SetTrigger("isDead");
+            Destroy(gameObject, 1);
         }
     }
+
 
 }
