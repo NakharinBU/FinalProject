@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
     [SerializeField] private float health;
-    private float Health { get { return health; } set { health = value; } }
+    public float Health { get { return health; } set { health = value; } }
 
     public Rigidbody2D Rigidbody;
     public Animator animator;
 
+    [SerializeField] private HealthBar HealthBar;
+
+
     public void Initialize(float newHealth)
     {
         Health = newHealth;
+        HealthBar.SetMaxHealth(Health);
+        HealthBar.UpdateHealthBar(Health);
     }
 
     public bool AlreadyDead() 
@@ -23,12 +29,22 @@ public class Character : MonoBehaviour
     public void TakeDamage(float damage) 
     {
         Health -= damage;
+        HealthBar.UpdateHealthBar(Health);
         Debug.Log("Hit");
 
         if (AlreadyDead())
         {
             animator.SetTrigger("isDead");
-            Destroy(gameObject, 1);
+            gameObject.SetActive(false);
+            this.enabled = false;
+        }
+    }
+
+    public void DestroyCharacter()
+    {
+        if (gameObject != null) 
+        {
+            Destroy(gameObject);
         }
     }
 
