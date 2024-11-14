@@ -47,6 +47,4 @@ public class Character : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }
