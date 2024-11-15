@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration;
     public float groundSpeed;
     public float jumpSpeed;
+    public int maxJumps = 2;
 
     [Range(0, 1f)]
     public float groundDecay;
     public bool isGrounded;
+    private int jumpCount;
     public BoxCollider2D groundCheck;
     public LayerMask groundMask;
     float xInput;
@@ -49,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
         if (wasGrounded != isGrounded)
         {
             animator.SetBool("isJumping", !isGrounded);
+
+            if (isGrounded)
+            {
+                jumpCount = 0;
+            }
         }
     }
 
@@ -76,11 +83,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
-            //animator.SetBool("isJumping", isGrounded);
-
+            jumpCount++;
         }
     }
 
