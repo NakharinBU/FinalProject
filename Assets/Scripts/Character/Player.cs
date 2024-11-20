@@ -24,9 +24,8 @@ public class Player : Character, Shootable
         Initialize(100);
         spawnPoint = transform.position;
 
-
         Wait = 0f;
-        ReloadTime = 1.0f;
+        ReloadTime = 0.2f;
     }
 
 
@@ -50,14 +49,13 @@ public class Player : Character, Shootable
 
     public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1") && canFire)
+        if (Input.GetButton("Fire1") && canFire)
         {
             GameObject gameObject = Instantiate(Bullet, Transform.position, Quaternion.identity);
 
             Bullet bullet = gameObject.GetComponent<Bullet>();
 
             bullet.InitializeDMG(20, this);
-
 
             canFire = false;
         }

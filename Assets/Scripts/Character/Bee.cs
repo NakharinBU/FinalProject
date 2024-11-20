@@ -15,6 +15,8 @@ public class Bee : Enemy
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
+
         Initialize(100);
         DamageHit = 10;
     }
@@ -30,10 +32,26 @@ public class Bee : Enemy
 
     private void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (player.transform.position.x < transform.position.x && transform.localScale.x > 0)
+        {
+            // ¼ÙéàÅè¹ÍÂÙè·Ò§«éÒÂ bee ËÑ¹ä»·Ò§«éÒÂ
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (player.transform.position.x > transform.position.x && transform.localScale.x < 0)
+        {
+            // ¼ÙéàÅè¹ÍÂÙè·Ò§¢ÇÒ bee ËÑ¹ä»·Ò§¢ÇÒ
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
 
         if (distance < distanceBetween && distance > stopDistance)
         {
@@ -47,7 +65,7 @@ public class Bee : Enemy
             if (playerCharacter != null)
             {
                 AttackWho(playerCharacter);
-                lastAttackTime = Time.time; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤ï¿½ï¿½é§¶Ñ´ï¿½
+                lastAttackTime = Time.time;
             }
         }
     }

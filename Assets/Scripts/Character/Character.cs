@@ -37,16 +37,16 @@ public class Character : MonoBehaviour
         {
             isDie = true;
 
-            animator.SetTrigger("isDead");
-            HealthBar.gameObject.SetActive(false);
-            this.enabled = false;
             StartCoroutine(WaitForDeadAnimation());
         }
     }
 
     public void DestroyCharacter()
     {
-        this.gameObject.SetActive(false);
+        animator.SetTrigger("isDead");
+        HealthBar.gameObject.SetActive(false);
+        this.enabled = false;
+        Destroy(gameObject, 1f);
     }
 
     IEnumerator WaitForDeadAnimation() 
