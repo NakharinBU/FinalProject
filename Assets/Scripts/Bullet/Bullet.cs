@@ -34,6 +34,10 @@ public class Bullet : Weapon
         {
             enemy.TakeDamage(this.Damage);
         }
+        else
+        {
+            Destroy(gameObject, 1f);
+        }
     }
 
 

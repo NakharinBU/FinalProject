@@ -8,11 +8,12 @@ public class Character : MonoBehaviour
     [SerializeField] private float health;
     public float Health { get { return health; } set { health = value; } }
 
+    private bool isDie = false;
+
     public Rigidbody2D Rigidbody;
     public Animator animator;
 
     [SerializeField] private HealthBar HealthBar;
-
 
     public void Initialize(float newHealth)
     {
@@ -28,23 +29,31 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(float damage) 
     {
+        if (isDie) return;
+
         Health -= damage;
         HealthBar.UpdateHealthBar(Health);
-        Debug.Log("Hit");
-
         if (AlreadyDead())
         {
+            isDie = true;
+
             animator.SetTrigger("isDead");
-            gameObject.SetActive(false);
+            HealthBar.gameObject.SetActive(false);
             this.enabled = false;
+            StartCoroutine(WaitForDeadAnimation());
         }
     }
 
     public void DestroyCharacter()
     {
-        if (gameObject != null) 
-        {
-            Destroy(gameObject);
-        }
+        this.gameObject.SetActive(false);
     }
+
+    IEnumerator WaitForDeadAnimation() 
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        DestroyCharacter();
+    }
+
+
 }

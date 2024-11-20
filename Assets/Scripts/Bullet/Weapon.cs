@@ -26,5 +26,9 @@ public abstract class Weapon : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject, 0.3f);
+        }
     }
 }

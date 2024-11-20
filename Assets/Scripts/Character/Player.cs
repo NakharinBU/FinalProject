@@ -17,9 +17,13 @@ public class Player : Character, Shootable
 
     [SerializeField] private bool canFire;
 
+    [SerializeField] private Vector2 spawnPoint;
+
     void Start()
     {
         Initialize(100);
+        spawnPoint = transform.position;
+
 
         Wait = 0f;
         ReloadTime = 1.0f;
@@ -60,7 +64,18 @@ public class Player : Character, Shootable
 
     }
 
+    public void SpawnPoint() 
+    {
+        transform.position = spawnPoint;
+        TakeDamage(10);
+    }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fallblock"))
+        {
+            SpawnPoint();
+        }
+    }
 
 }

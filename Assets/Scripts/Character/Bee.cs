@@ -23,7 +23,6 @@ public class Bee : Enemy
     {
         if (enemy is Player)
         {
-            Debug.Log(DamageHit);
             enemy.TakeDamage(DamageHit);
         }
     }
@@ -48,7 +47,7 @@ public class Bee : Enemy
             if (playerCharacter != null)
             {
                 AttackWho(playerCharacter);
-                lastAttackTime = Time.time; // µÑé§àÇÅÒâ¨ÁµÕ¤ÃÑé§¶Ñ´ä»
+                lastAttackTime = Time.time; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤ï¿½ï¿½é§¶Ñ´ï¿½
             }
         }
     }
