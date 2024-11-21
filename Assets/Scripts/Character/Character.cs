@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
         animator.SetTrigger("isDead");
         HealthBar.gameObject.SetActive(false);
         this.enabled = false;
+        Destroy(GetComponent<Collider2D>());
         Destroy(gameObject, 1f);
     }
 

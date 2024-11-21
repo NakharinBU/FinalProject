@@ -29,7 +29,6 @@ public class Bee : Enemy
         }
     }
 
-
     private void Update()
     {
         if (player == null)

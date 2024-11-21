@@ -9,6 +9,7 @@ public abstract class Enemy : Character
 
     public abstract void AttackWho(Character enemy);
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Character character = collision.GetComponent<Character>();

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TreeEnemy : Enemy
 {
+    [SerializeField] ObjectiveText objectiveText;
+
+
     private void Start()
     {
         Initialize(500);
@@ -18,6 +21,14 @@ public class TreeEnemy : Enemy
         }
     }
 
+    private void OnDestroy()
+    {
+        Debug.Log("Tree");
+        if (objectiveText != null)
+        {
+            objectiveText.UpdateKills();
+        }
+    }
 
 
 }

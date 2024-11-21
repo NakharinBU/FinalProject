@@ -704,5 +704,5 @@ MonoBehaviour:
   damageHit: 0
   player: {fileID: 7219533689485464608, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
   speed: 1.5
-  distanceBetween: 10
+  distanceBetween: 8
   stopDistance: 1

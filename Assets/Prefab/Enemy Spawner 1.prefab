@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobPrefab: {fileID: 7594212798750357978, guid: 8e41978776f7d8a409860e99465314de, type: 3}
-  maxSpawnTime: 2
-  minSpawnTime: 6
+  maxSpawnTime: 5
+  minSpawnTime: 8
   spawnTime: 0
