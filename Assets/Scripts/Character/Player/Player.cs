@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character, Shootable
 {
@@ -32,6 +33,13 @@ public class Player : Character, Shootable
     void Update()
     {
         Shoot();
+
+        if (this.AlreadyDead())
+        {
+            PlayerDied();
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -76,4 +84,8 @@ public class Player : Character, Shootable
         }
     }
 
+    public void PlayerDied() 
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
 }

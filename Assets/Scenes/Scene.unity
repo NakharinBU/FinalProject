@@ -1902,6 +1902,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4177417689433525057, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177417689433525057, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177417689433525057, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737332967205331078, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6697604628465452745, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
