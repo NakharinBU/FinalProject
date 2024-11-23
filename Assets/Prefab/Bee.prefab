@@ -701,6 +701,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 400335484843513277}
   animator: {fileID: 3464991587700635733}
   HealthBar: {fileID: 681639407020634124}
+  spriteRenderer: {fileID: 4207555725037564060}
   damageHit: 0
   player: {fileID: 7219533689485464608, guid: 17fa0acbdf1724d4083b1098d181dd10, type: 3}
   speed: 1.5
