@@ -19,21 +19,5 @@ public abstract class Weapon : MonoBehaviour
         shooter = whoShoot;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        AttackWho(other.GetComponent<Character>());
-        if (other.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-
-        else if (other.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject, 1f);
-        }
-    }
+    public abstract void OnTriggerEnter2D(Collider2D other);
 }

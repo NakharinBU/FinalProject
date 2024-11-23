@@ -16,7 +16,7 @@ public class Boss : Enemy
 
     private void Update()
     {
-        if (Health <= 500)
+        if (Health <= 1000)
         {
             animator.SetBool("isEnrage", true);
         }

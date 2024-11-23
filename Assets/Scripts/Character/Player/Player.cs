@@ -61,7 +61,7 @@ public class Player : Character, Shootable
         {
             GameObject gameObject = Instantiate(Bullet, Transform.position, Quaternion.identity);
 
-            Bullet bullet = gameObject.GetComponent<Bullet>();
+            CarrotBullet bullet = gameObject.GetComponent<CarrotBullet>();
 
             bullet.InitializeDMG(20, this);
 

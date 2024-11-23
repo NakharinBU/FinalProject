@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : Weapon
+public class CarrotBullet : Weapon
 {
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
     [SerializeField] private float force;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -40,5 +40,17 @@ public class Bullet : Weapon
         }
     }
 
+    public override void OnTriggerEnter2D(Collider2D other)
+    {
+        AttackWho(other.GetComponent<Character>());
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
