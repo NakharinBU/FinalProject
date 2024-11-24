@@ -9,6 +9,14 @@ public class Boss : Enemy
     public Transform player;
     public bool isFlipped = false;
 
+    [SerializeField] GameObject objDrone;
+    [SerializeField] Transform objTransform;
+    private int countDrone = 1;
+
+    [SerializeField] private float timer = 0;
+    private float maxTime = 10;
+
+
     private void Start()
     {
         Initialize(2000);
@@ -16,6 +24,7 @@ public class Boss : Enemy
 
     private void Update()
     {
+        timer += Time.deltaTime;
         if (Health <= 1000)
         {
             animator.SetBool("isEnrage", true);
@@ -26,7 +35,6 @@ public class Boss : Enemy
     {
         if (player == null)
         {
-            Debug.LogWarning("Player Transform not found!");
             return;
         }
 
@@ -45,14 +53,9 @@ public class Boss : Enemy
     {
         isFlipped = !isFlipped;
 
-        // Debug ก่อนและหลังการปรับ Scale
-        Debug.Log($"Before Flip: {transform.localScale}");
-
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-
-        Debug.Log($"After Flip: {transform.localScale}");
     }
 
     public override void AttackWho(Character enemy)

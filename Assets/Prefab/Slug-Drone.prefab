@@ -59,6 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5992857182123550645}
   - component: {fileID: 2077085759583674506}
+  - component: {fileID: 2459753439924865832}
   m_Layer: 0
   m_Name: Slug-Drone
   m_TagString: Untagged
@@ -134,3 +135,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2459753439924865832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821855674565970893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b395d6d5547a6043b9a71d9e726e749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletLife: 2
+  rotation: 2
+  speed: 1
+  Damage: 5
