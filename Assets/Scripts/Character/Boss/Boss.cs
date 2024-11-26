@@ -11,7 +11,13 @@ public class Boss : Enemy
 
     [SerializeField] GameObject objDrone;
     [SerializeField] Transform objTransform;
-    private int countDrone = 1;
+    private bool isDroneSpawn;
+
+    [SerializeField] GameObject carrotObj;
+    [SerializeField] Transform carrotTransform;
+    private bool isCarrotSpawn;
+
+
 
     [SerializeField] private float timer = 0;
     private float maxTime = 10;
@@ -20,15 +26,19 @@ public class Boss : Enemy
     private void Start()
     {
         Initialize(2000);
+        isDroneSpawn = true;
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
-        if (Health <= 1000)
+        if (timer >= maxTime)
         {
-            animator.SetBool("isEnrage", true);
+            isDroneSpawn = false;
+            timer = 0;
         }
+
+        CheckHealthBoss();
     }
 
     public void FlipFace()
@@ -65,4 +75,25 @@ public class Boss : Enemy
             enemy.TakeDamage(DamageHit);
         }
     }
+
+    public void CheckHealthBoss()
+    {
+        if (Health <= 1000)
+        {
+            animator.SetBool("isEnrage", true);
+        }
+
+        if (Health <= 500 && !isDroneSpawn)
+        {
+            Instantiate(objDrone, objTransform.position, Quaternion.identity);
+            isDroneSpawn = true;
+        }
+
+        if (AlreadyDead() && !isCarrotSpawn)
+        {
+            Instantiate(carrotObj, carrotTransform.position, Quaternion.identity);
+            isCarrotSpawn = true;
+        }
+    }
+
 }

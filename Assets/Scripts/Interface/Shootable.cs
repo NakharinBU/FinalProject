@@ -11,6 +11,4 @@ public interface Shootable
     float ReloadTime { get; set; }
 
     float Wait { get; set; }
-
-    void Shoot();
 }

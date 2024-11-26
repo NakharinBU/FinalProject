@@ -23,7 +23,6 @@ public class TreeEnemy : Enemy
 
     private void OnDestroy()
     {
-        Debug.Log("Tree");
         if (objectiveText != null)
         {
             objectiveText.UpdateKills();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4177417689433525057}
   - component: {fileID: 2433385444715242549}
   m_Layer: 6
-  m_Name: HealthBar
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -777,6 +777,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 8066411417996992250}
   animator: {fileID: 6157764355085116905}
   HealthBar: {fileID: 7924367093526876192}
+  spriteRenderer: {fileID: 405029383357432601}
   <Bullet>k__BackingField: {fileID: 4506063086969136789, guid: 7d6390297af4ed94c8cbe4adfd9049a2, type: 3}
   <Transform>k__BackingField: {fileID: 3963551065239427274}
   <ReloadTime>k__BackingField: 0

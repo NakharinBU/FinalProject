@@ -148,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLife: 2
-  rotation: 2
+  rotation: 1
   speed: 1
   Damage: 5

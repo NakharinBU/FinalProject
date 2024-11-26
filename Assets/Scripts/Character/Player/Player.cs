@@ -20,6 +20,8 @@ public class Player : Character, Shootable
 
     [SerializeField] private Vector2 spawnPoint;
 
+    private int numOfCarrot;
+
     void Start()
     {
         Initialize(100);
@@ -63,7 +65,7 @@ public class Player : Character, Shootable
 
             CarrotBullet bullet = gameObject.GetComponent<CarrotBullet>();
 
-            bullet.InitializeDMG(20, this);
+            bullet.InitializeDMG(2000, this);
 
             canFire = false;
         }
@@ -88,4 +90,18 @@ public class Player : Character, Shootable
     {
         SceneManager.LoadSceneAsync(2);
     }
+
+    public void AddValue(float newHealth)
+    {
+        Health += newHealth;
+        Health = Mathf.Clamp(Health, 0, 100);
+        HealthBar.UpdateHealthBar(Health);
+        
+    }
+
+    public void AddValue(int carrotCount) 
+    {
+        numOfCarrot += carrotCount;
+    }
+
 }

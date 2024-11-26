@@ -21,6 +21,11 @@ public class BossShooting : MonoBehaviour, Shootable
 
     private void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
         if (distance < 5)
