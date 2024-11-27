@@ -44,17 +44,18 @@ public abstract class Character : MonoBehaviour
         if (AlreadyDead())
         {
             isDie = true;
-            HealthBar.gameObject.SetActive(false);
-            Destroy(GetComponent<Collider2D>());
+
             StartCoroutine(WaitForDeadAnimation());
         }
     }
 
     public void DestroyCharacter()
     {
-        animator.SetTrigger("isDead");
         this.enabled = false;
-        Destroy(gameObject, 1f);
+        HealthBar.gameObject.SetActive(false);
+        Destroy(GetComponent<Collider2D>());
+        animator.SetTrigger("isDead");
+        Destroy(gameObject, 0.5f);
     }
 
     IEnumerator WaitForDeadAnimation() 

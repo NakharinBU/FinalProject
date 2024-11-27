@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectiveText : MonoBehaviour
 {
     public bool isComplete = false;
-    private int kills = 0;
+    protected int kills = 0;
     [SerializeField] TextMeshProUGUI objText;
     [SerializeField] Character[] numOfEnemy;
 
@@ -16,16 +16,14 @@ public class ObjectiveText : MonoBehaviour
     }
 
 
-    public void UpdateObjectiveTxt() 
+    public void UpdateObjectiveTxt()
     {
         objText.text = $"Objective : Destroy {kills} / {numOfEnemy.Length} Tree of Bee";
         if (isComplete == true)
         {
             objText.text = $"Objective : Enter The Warp Portal";
         }
-
     }
-
 
     public void UpdateKills() 
     {

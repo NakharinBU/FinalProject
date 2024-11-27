@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextScene : MonoBehaviour
+public class NextSceneLV2 : MonoBehaviour
 {
-
     [SerializeField] ObjectiveText objective;
-    [SerializeField] private bool checkObjective;
+    protected bool checkObjective;
     [SerializeField] SpriteRenderer spriteRenderer;
 
     private void Start()
@@ -18,7 +15,7 @@ public class NextScene : MonoBehaviour
         this.spriteRenderer.enabled = false;
     }
 
-    public void checkLevelComplete() 
+    public void checkLevelComplete()
     {
         if (objective.isComplete == true)
         {

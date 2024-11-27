@@ -6,8 +6,10 @@ using UnityEngine;
 public class Level2Objective : MonoBehaviour
 {
     public bool isComplete = false;
+    public bool isCollectedCarrot = false;
     [SerializeField] TextMeshProUGUI objText;
-    [SerializeField] Character Boss;
+    [SerializeField] Player player;
+    [SerializeField] Character boss;
 
     private void Start()
     {
@@ -16,18 +18,18 @@ public class Level2Objective : MonoBehaviour
 
     private void Update()
     {
-        // ตรวจสอบว่า Objective เสร็จสิ้นหรือยัง
-        if (!isComplete && Boss.Health < 0)
-        {
-            UpdateObjectiveStats();
-        }
+        UpdateObjectiveStats();
     }
 
     public void UpdateObjectiveTxt()
     {
-        if (isComplete)
+        if (isComplete && !isCollectedCarrot)
         {
             objText.text = $"Objective : The Slug is dead. Hurry up!, Collect The Carrot";
+        }
+        else if (isComplete && isCollectedCarrot)
+        {
+            objText.text = $"Objective : Get into the house";
         }
         else
         {
@@ -37,9 +39,15 @@ public class Level2Objective : MonoBehaviour
 
     public void UpdateObjectiveStats()
     {
-        if (Boss.Health < 0)
+        if (boss.Health < 0 && !isCollectedCarrot)
         {
             isComplete = true;
+            UpdateObjectiveTxt();
+        }
+
+        if (isComplete && !isCollectedCarrot && player.NumOfCarrot >= 1)
+        {
+            isCollectedCarrot = true;
             UpdateObjectiveTxt();
         }
     }

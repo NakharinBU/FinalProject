@@ -20,7 +20,7 @@ public class Player : Character, Shootable
 
     [SerializeField] private Vector2 spawnPoint;
 
-    private int numOfCarrot;
+    public int NumOfCarrot;
 
     void Start()
     {
@@ -65,7 +65,7 @@ public class Player : Character, Shootable
 
             CarrotBullet bullet = gameObject.GetComponent<CarrotBullet>();
 
-            bullet.InitializeDMG(2000, this);
+            bullet.InitializeDMG(20, this);
 
             canFire = false;
         }
@@ -101,7 +101,7 @@ public class Player : Character, Shootable
 
     public void AddValue(int carrotCount) 
     {
-        numOfCarrot += carrotCount;
+        NumOfCarrot += carrotCount;
     }
 
 }

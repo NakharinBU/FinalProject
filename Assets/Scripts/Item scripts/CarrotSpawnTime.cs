@@ -15,7 +15,7 @@ public class CarrotSpawnTime : MonoBehaviour
     private void Start()
     {
         isSpawn = false;
-        maxTime = 10f;
+        maxTime = 20f;
     }
 
     private void Update()
