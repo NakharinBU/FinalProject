@@ -752,7 +752,7 @@ MonoBehaviour:
   rb2d: {fileID: 8066411417996992250}
   animator: {fileID: 6157764355085116905}
   acceleration: 1
-  groundSpeed: 3
+  groundSpeed: 2
   jumpSpeed: 4
   maxJumps: 2
   groundDecay: 0.25
@@ -784,6 +784,7 @@ MonoBehaviour:
   <Wait>k__BackingField: 0
   canFire: 0
   spawnPoint: {x: 0, y: 0}
+  NumOfCarrot: 0
 --- !u!61 &7013724042293418634
 BoxCollider2D:
   m_ObjectHideFlags: 0
