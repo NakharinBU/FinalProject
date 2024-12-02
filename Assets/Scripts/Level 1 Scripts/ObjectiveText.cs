@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectiveText : MonoBehaviour
 {
     public bool isComplete = false;
-    protected int kills = 0;
+    private int kills = 0;
     [SerializeField] TextMeshProUGUI objText;
     [SerializeField] Character[] numOfEnemy;
 

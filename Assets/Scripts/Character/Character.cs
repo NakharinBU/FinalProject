@@ -58,7 +58,7 @@ public abstract class Character : MonoBehaviour
         Destroy(gameObject, 0.5f);
     }
 
-    IEnumerator WaitForDeadAnimation() 
+    private IEnumerator WaitForDeadAnimation() 
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         DestroyCharacter();

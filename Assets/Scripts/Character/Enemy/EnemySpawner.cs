@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SetTimeUntilSpawn()
+    public void SetTimeUntilSpawn()
     {
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
     }

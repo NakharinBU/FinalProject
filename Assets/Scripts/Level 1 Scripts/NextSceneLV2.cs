@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextSceneLV2 : MonoBehaviour
 {
     [SerializeField] ObjectiveText objective;
-    protected bool checkObjective;
+    private bool checkObjective;
     [SerializeField] SpriteRenderer spriteRenderer;
 
     private void Start()

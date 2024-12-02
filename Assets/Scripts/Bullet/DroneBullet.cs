@@ -26,7 +26,7 @@ public class DroneBullet : MonoBehaviour
     }
 
 
-    private Vector2 Movement(float timer)
+    public Vector2 Movement(float timer)
     {
         float x = timer * speed * transform.right.x;
         float y = timer * speed * transform.right.y;

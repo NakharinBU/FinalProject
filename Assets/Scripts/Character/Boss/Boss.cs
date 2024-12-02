@@ -59,7 +59,7 @@ public class Boss : Enemy
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         isFlipped = !isFlipped;
 
